@@ -6,4 +6,4 @@ df = pd.read_csv('pokemon_data.csv')
 
 df['Total'] = df['HP']+df['Attack'] + df['Sp. Atk']+ df['Sp. Def'] + df['Speed']
 print(df.head(5))
-# print(df['Total'])
+print(df['Total'])
