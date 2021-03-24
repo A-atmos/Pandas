@@ -19,3 +19,6 @@ df = df[cols[0:4]+[cols[-1]]+cols[4:len(cols)-1]] #since cols[-1] will be a stri
 print(df.head(3))
 
 # print(df['Total'])
+
+'''save'''
+df.to_csv('modified_pokemon_data.csv')
