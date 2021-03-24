@@ -21,4 +21,5 @@ print(df.head(3))
 # print(df['Total'])
 
 '''save'''
-df.to_csv('modified_pokemon_data.csv')
+df.to_csv('modified_pokemon_data.csv', index = False) #index for the first column
+
