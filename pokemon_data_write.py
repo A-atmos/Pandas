@@ -1,8 +1,8 @@
 import numpy as np
 import pandas as pd
-
+import re #regular expressions for filtering data based on string pattern
 df = pd.read_csv('pokemon_data.csv')
-# print(df.head(5))
+print(df.head(5))
 
 df['Total'] = df['HP']+df['Attack'] + df['Sp. Atk']+ df['Sp. Def'] + df['Speed']
 # print(df.head(5))
@@ -23,3 +23,16 @@ print(df.head(3))
 '''save'''
 df.to_csv('modified_pokemon_data.csv', index = False) #index for the first column
 
+'''also df.to_excel('excel.xlsx', index = False) & df.to_csv('modified.txt', index= False, sep = '\t')'''
+"""df.to_csv('modified.txt', index= False, sep = '\t') #sep -- separator"""
+
+# #Filtering data
+# print(df.loc[df['Legendary']==True])
+"""new = df.loc[df['Type 1']=='Ice']
+print(new.loc[new['Legendary']==True])"""
+#OR
+'''print(df.loc[(df['Type 1']=='Ice') & (df['Legendary']== True)])''' #& for and, | for or
+
+print(df.loc[df['Name'].str.contains('^pi[a-z]*', flags = re.I, regex = True)].reset_index())
+# df.reset_index() function for reseting index
+# df.loc[~df['Name'].str.contains('pi[a-z]*'), flags=re.I, regex = True] #Here ~ acts as not(!)
