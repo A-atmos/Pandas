@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import re #regular expressions for filtering data based on string pattern
 df = pd.read_csv('pokemon_data.csv')
-print(df.head(5))
+# print(df.head(5))
 
 df['Total'] = df['HP']+df['Attack'] + df['Sp. Atk']+ df['Sp. Def'] + df['Speed']
 # print(df.head(5))
@@ -14,9 +14,9 @@ df['Total'] = df.iloc[:,4:10].sum(axis=1)'''
 # print(df.head(5))
 
 cols = list(df.columns.values)
-print(cols)
+# print(cols)
 df = df[cols[0:4]+[cols[-1]]+cols[4:len(cols)-1]] #since cols[-1] will be a string, [cols[-1]] is as list
-print(df.head(3))
+# print(df.head(3))
 
 # print(df['Total'])
 
@@ -33,6 +33,14 @@ print(new.loc[new['Legendary']==True])"""
 #OR
 '''print(df.loc[(df['Type 1']=='Ice') & (df['Legendary']== True)])''' #& for and, | for or
 
-print(df.loc[df['Name'].str.contains('^pi[a-z]*', flags = re.I, regex = True)].reset_index())
+# print(df.loc[df['Name'].str.contains('^pi[a-z]*', flags = re.I, regex = True)].reset_index())
 # df.reset_index() function for reseting index
 # df.loc[~df['Name'].str.contains('pi[a-z]*'), flags=re.I, regex = True] #Here ~ acts as not(!)
+
+
+#conditional changes
+
+# df.loc[df['Total']>500,['Legendary']]= True '''multiple changes can also be made'''
+
+# df = pd.read_csv('pokemon_data.csv')
+print(df)
