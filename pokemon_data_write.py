@@ -67,6 +67,13 @@ print(df.groupby(['Type 1', 'Type 2']).count()['Count']) #arrange by Type1 and T
 
 #load smaller dataframes at a time using chunksize, ex:
 
-for df1 in pd.read_csv('pokemon_data.csv', chunksize=5): # chunksize = 5 loads 5 rows at a time in df1; can work with 5 rows at a time
-    print(df1)
-    print("SPACE")
+new_df = pd.DataFrame(columns= df.columns)
+# for df1 in pd.read_csv('pokemon_data.csv', chunksize=5): # chunksize = 5 loads 5 rows at a time in df1; can work with 5 rows at a time
+#     print(df1)
+#     print("SPACE")
+
+for df in pd.read_csv('modified_pokemon_data.csv', chunksize=5):
+    concat = df.groupby(['Type 1']).count()
+    new_df = pd.concat([new_df, concat])
+
+# print(new_df)
