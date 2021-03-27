@@ -58,4 +58,7 @@ print(new.loc[new['Legendary']==True])"""
 '''
 
 df['Count'] = 1
-print(df.groupby(['Type 1']).count()['Count'])
+# print(df.groupby(['Type 1']).count()['Count'])
+
+
+print(df.groupby(['Type 1', 'Type 2']).count()['Count']) #arrange by Type1 and Type2 and couny both sort of data
