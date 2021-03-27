@@ -62,3 +62,11 @@ df['Count'] = 1
 
 
 print(df.groupby(['Type 1', 'Type 2']).count()['Count']) #arrange by Type1 and Type2 and couny both sort of data
+
+#working with large datasets
+
+#load smaller dataframes at a time using chunksize, ex:
+
+for df1 in pd.read_csv('pokemon_data.csv', chunksize=5): # chunksize = 5 loads 5 rows at a time in df1; can work with 5 rows at a time
+    print(df1)
+    print("SPACE")
