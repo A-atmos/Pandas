@@ -43,4 +43,19 @@ print(new.loc[new['Legendary']==True])"""
 # df.loc[df['Total']>500,['Legendary']]= True '''multiple changes can also be made'''
 
 # df = pd.read_csv('pokemon_data.csv')
-print(df)
+# print(df)
+
+#Stats
+
+# print(df.groupby(['Type 1']).mean().sort_values('Defense', ascending = False))
+
+'''
+.groupby() -- syntax = df.groupby(['TYPE']) -- to group-by a specific "TYPE"
+
+.mean() -- to calculate the mean
+.sum() -- to sum up all the no of specific type
+.count() -- to count total no of specific type
+'''
+
+df['Count'] = 1
+print(df.groupby(['Type 1']).count()['Count'])
